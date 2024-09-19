@@ -1,0 +1,70 @@
+import 'package:photo_view/photo_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:photo_view/photo_view.dart';
+
+class ImageViewer extends StatefulWidget {
+  final String src;
+  final String title;
+  const ImageViewer({super.key, required this.src, required this.title});
+
+  @override
+  State<ImageViewer> createState() => _ImageViewerState();
+}
+
+class _ImageViewerState extends State<ImageViewer> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        leading: IconButton(onPressed: () => Get.back(), icon: Icon(Icons.arrow_back, color: Colors.white,)),
+        title: Text(widget.title, style: TextStyle(color: Colors.white),),
+        backgroundColor: ThemeData().primaryColor,
+      ),
+      body: SizedBox(
+        width: Get.width,
+        child: PhotoView(
+          enableRotation: true,
+          filterQuality: FilterQuality.high,
+          imageProvider: NetworkImage(widget.src),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+// class FullScreenImage extends StatelessWidget {
+//   final String imageUrl;
+//   FullScreenImage({required this.imageUrl});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.black,
+//       body: CustomFloatingButton(
+//         onTap: () => Get.back(),
+//         child: Center(
+//           child: Container(
+//                child: PhotoView(
+//               imageProvider: networkImage(imageUrl),
+//                       )
+//   );
+          
+//           // Hero(
+//           //   tag: imageUrl,
+//           //   child: Image.network(imageUrl),
+//           // ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
