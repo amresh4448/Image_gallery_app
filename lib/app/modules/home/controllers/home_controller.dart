@@ -35,7 +35,7 @@ class HomeController extends GetxController {
     }
 
     isLoading(true);
-    var apiKey = '46036267-b8a7aa88600f9d9b7ace1a4cf';
+    var apiKey = 'add here your api key';
     var url = Uri.parse('https://pixabay.com/api/?key=$apiKey&q=${searchQuery.value}&image_type=photo&page=$page');
     
     try {
